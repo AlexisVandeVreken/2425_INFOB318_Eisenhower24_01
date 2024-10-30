@@ -1,0 +1,11 @@
+/**
+QPushButton#sidebar_button {
+    border: 1px solid yellowgreen;
+    background-color: green;
+    color: blueviolet;
+}
+
+QPushButton#sidebar_button:hover {
+    background-color: blue;
+    color: white;
+}**/ 
