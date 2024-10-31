@@ -1,11 +1,40 @@
-/**
-QPushButton#sidebar_button {
-    border: 1px solid yellowgreen;
-    background-color: green;
-    color: blueviolet;
+QMainWindow{
+    background-color: %bg_color%;
+    margin: 5px; /*remove or modify before release*/
+    border: 2px solid %font_color%;
+}
+QWidget#sidebar{
+    background-color: %bg_color%;
 }
 
-QPushButton#sidebar_button:hover {
-    background-color: blue;
-    color: white;
-}**/ 
+QWidget#sidebar QPushButton{
+    background-color: %button_color%;
+    color: %button_font_color%;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+QWidget#sidebar QPushButton:hover{
+    border: 1px solid #05b0ec;
+    background-color: #05b0ec;
+    font-weight: bold;
+    font-size: 20px;
+    color:black;
+}
+
+QWidget#sidebar QPushButton:pressed{
+    background-color: %button_color%;
+    color: %button_font_color%;
+}
+
+QWidget#main_content{
+    border: 2px solid #05b0ec;
+    background-color: %bg_color%;
+}
+
