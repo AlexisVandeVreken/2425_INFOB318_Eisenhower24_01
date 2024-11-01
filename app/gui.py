@@ -75,6 +75,7 @@ class MainWindow(QMainWindow):
         self.window = QWidget()
         self.setCentralWidget(self.window)
         main_layout = QHBoxLayout()
+        main_layout.setSpacing(0)
         self.window.setLayout(main_layout)
 
         #sidebar container, will be in all window
@@ -158,6 +159,8 @@ class MainWindow(QMainWindow):
             for button in self.sidebar.children():
                 if isinstance(button, QPushButton):
                     button.setText("")
+                    button.width = 100
+                    
         elif self.sidebar_out == False:
             self.sidebar_out = True
             self.toggle_sidebar_button.setText("Collapse")
@@ -174,10 +177,11 @@ class MainWindow(QMainWindow):
         # Calculate width based on window size and sidebar state
         window_width = self.width()
         if self.sidebar_out:
-            sidebar_width = int(window_width * self.sidebar_expanded_ratio) if window_width > 1375 else 200
+            #sidebar_width = int(window_width * self.sidebar_expanded_ratio) if window_width > 1750 else 210
+            sidebar_width = 210
         else:
-            sidebar_width = int(window_width * self.sidebar_collapsed_ratio) if window_width > 1100 else 55
-
+            #sidebar_width = int(window_width * self.sidebar_collapsed_ratio) if window_width > 917 else 55
+            sidebar_width = 60
         self.sidebar.setFixedWidth(sidebar_width)
 
     def resizeEvent(self, event):
@@ -199,7 +203,6 @@ class MainWindow(QMainWindow):
             qss = file.read()
             for key, value in theme.items():
                 qss = qss.replace(f"%{key}%", value)
-                #print(f"%{key}%, {value}")
         self.setStyleSheet(qss)
         self.apply_theme()
         
